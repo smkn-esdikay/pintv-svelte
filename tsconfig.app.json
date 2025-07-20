@@ -7,9 +7,14 @@
     "resolveJsonModule": true,
 
 
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
     /* linting */
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
+    // "noEmit": true,
+    // "allowImportingTsExtensions": true,
 
     /**
      * Typecheck JS in `.svelte` and `.js` files by default.

@@ -1,4 +1,3 @@
-<!-- src/pages/NotFound.svelte -->
 <script lang="ts">
   import { navigate } from '../lib/router.svelte';
 </script>

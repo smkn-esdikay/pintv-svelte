@@ -1,22 +1,20 @@
 
-let currentRoute = $state(window.location.hash.slice(1) || 'home');
+const defaultRoute: string = 'home';
 
-// Listen for hash changes
+let currentRoute: string = $state(window.location.hash.slice(1) || defaultRoute);
+
 window.addEventListener('hashchange', () => {
-  currentRoute = window.location.hash.slice(1) || 'home';
+  currentRoute = window.location.hash.slice(1) || defaultRoute;
 });
 
-// Programmatic navigation
-export function navigate(route: string) {
+export function navigate(route: string): void {
   window.location.hash = route;
 }
 
-// Get current route (reactive)
-export function getCurrentRoute() {
+export function getCurrentRoute(): string {
   return currentRoute;
 }
 
-// Route matching helper
-export function isRoute(route: string) {
+export function isRoute(route: string): boolean {
   return currentRoute === route;
 }
