@@ -7,7 +7,7 @@ window.addEventListener('hashchange', () => {
 });
 
 // Programmatic navigation
-export function navigate(route) {
+export function navigate(route: string) {
   window.location.hash = route;
 }
 
@@ -17,6 +17,6 @@ export function getCurrentRoute() {
 }
 
 // Route matching helper
-export function isRoute(route) {
+export function isRoute(route: string) {
   return currentRoute === route;
 }

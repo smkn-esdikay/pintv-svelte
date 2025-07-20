@@ -1,6 +1,6 @@
 <!-- src/pages/Home.svelte -->
 <script lang="ts">
-  import { navigate } from '../lib/router.ts';
+  import { navigate } from '../lib/router.svelte';
 </script>
 
 <div class="page">

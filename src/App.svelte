@@ -1,6 +1,6 @@
 <!-- src/App.svelte -->
 <script lang="ts">
-  import { getCurrentRoute, navigate } from './lib/router.ts';
+  import { getCurrentRoute, navigate } from './lib/router.svelte';
   import Home from './pages/Home.svelte';
   import NotFound from './pages/NotFound.svelte';
   
