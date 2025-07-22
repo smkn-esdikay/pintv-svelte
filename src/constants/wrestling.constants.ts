@@ -1,4 +1,4 @@
-import type { WAge, WeightUnit, WStyle } from "@/types";
+import type { WAge, WeightUnit, WPos, WStyle } from "@/types";
 
 /**
  * All time values are in seconds unless otherwise noted.
@@ -203,3 +203,46 @@ export const cnsThresholds = {
   Freestyle: { techfall: 10, major: 8, decision: 1 } as ThresholdEntry,
   Greco: { techfall: 10, major: 8, decision: 1 } as ThresholdEntry,
 };
+
+export type ActionPoint = number | 'dq';
+interface ActionEntry {
+  code: string;
+  title: string;
+  points?: ActionPoint[];
+  oppPoints?: ActionPoint[];
+  resultingPos?: WPos;
+}
+
+export const cnsActions = {
+  Folkstyle: [
+    { code: 'td',  title: 'Takedown', points: [3], resultingPos: 't', },
+    { code: 'esc', title: 'Escape', points: [1], resultingPos: 'n', },
+    { code: 'rev', title: 'Reversal', points: [2], resultingPos: 't', },
+    { code: 'nf2', title: 'Near Fall(2)', points: [2], },
+    { code: 'nf3', title: 'Near Fall(3)', points: [3], },
+    { code: 'nf4', title: 'Near Fall(4)', points: [4], },
+    { code: 'stall', title: 'Stall', oppPoints: [0, 1, 1, 2, 'dq'], },
+    { code: 'caution', title: 'Caution', oppPoints: [0, 0, 1], },
+    { code: 'tech', title: 'Tech', oppPoints: [1, 1, 2, 2, 'dq'], },
+    { code: 'unsport', title: 'Unsportsmanlike', oppPoints: [1, 1, 2, 2, 'dq'], },
+  ] as ActionEntry[],
+  Freestyle: [
+    { code: '+1', title: '1', points: [1], },
+    { code: '+2', title: '2', points: [2], },
+    { code: '+3', title: '3', points: [3], },
+    { code: '+4', title: '4', points: [4], },
+    { code: '+5', title: '5', points: [5], },
+    { code: 'caution', title: 'Caution', oppPoints: [2, 2, 'dq'], },
+    { code: 'passivity', title: 'Passivity', oppPoints: [0], },
+  ] as ActionEntry[],
+  Greco: [
+    { code: '+1', title: '1', points: [1], },
+    { code: '+2', title: '2', points: [2], },
+    { code: '+3', title: '3', points: [3], },
+    { code: '+4', title: '4', points: [4], },
+    { code: '+5', title: '5', points: [5], },
+    { code: 'caution', title: 'Caution', oppPoints: [2, 2, 'dq'], },
+    { code: 'passivity', title: 'Passivity', oppPoints: [0], },
+  ] as ActionEntry[],
+
+}
