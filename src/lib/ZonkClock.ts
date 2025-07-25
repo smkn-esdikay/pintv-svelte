@@ -1,7 +1,7 @@
 import { writable, type Writable } from 'svelte/store';
 
 export class ZonkClock {
-  // Core timing data (keep these as they're unique to timing logic)
+
   private max: number = 0;
   private started: number | null = null; 
   private stopped: number | null = null; 
@@ -9,7 +9,6 @@ export class ZonkClock {
   private durStop: number = 0;
   private durRun: number = 0;
   
-  // Reactive stores (these replace the duplicate boolean flags)
   public elapsed: Writable<number> = writable(0);
   public remaining: Writable<number> = writable(0);
   public isRunning: Writable<boolean> = writable(false);

@@ -1,5 +1,17 @@
 <script lang="ts">
   import { navigate } from '../lib/router.svelte';
+  import { ZonkClock } from '@/lib/ZonkClock';
+  import TimeDisplay from '@/components/TimeDisplay.svelte';
+  import TimeControls from '@/components/TimeControls.svelte';
+
+  let clock = new ZonkClock(120000); 
+
+  function handleTimeEdit(newTimeMs: number) {
+    // Create new clock with new time
+    clock.destroy();
+    clock = new ZonkClock(newTimeMs);
+  }
+
 </script>
 
 <div class="page">
@@ -7,6 +19,18 @@
   <p>This is the home page of your Svelte app.</p>
   
   <div class="actions">
+
+    <p>
+      <TimeDisplay 
+        {clock} 
+        allowEditing={true}
+        showElapsed={true}
+        onTimeEdit={handleTimeEdit}
+      />
+      <TimeControls {clock} />
+    </p>
+
+
     <button onclick={() => navigate('wrestling')}>
       Wrestling
     </button>
