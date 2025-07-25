@@ -7,6 +7,9 @@
   <p>This is the home page of your Svelte app.</p>
   
   <div class="actions">
+    <button onclick={() => navigate('wrestling')}>
+      Wrestling
+    </button>
     <button onclick={() => navigate('nonexistent')}>
       Test 404 Page
     </button>

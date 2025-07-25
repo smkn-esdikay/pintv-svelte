@@ -27,6 +27,13 @@ export type WPosChoice = {
   choice: WPos | 'defer';
 }
 
+export type WPeriod = {
+  title: string;
+  displayIdx: number; // used for display purposes
+  realIdx: number; // true index
+  actions: [];
+}
+
 export type WMatch = {
   weight: number;
   ptLeft: number;
@@ -37,6 +44,7 @@ export type WMatch = {
   winbyIdx: number; 
   totalElapsedSeconds: number;
   winPeriod: number;
+  periods: WPeriod[];
 }
 
 export type WStateSide = {
@@ -56,5 +64,25 @@ export type WStateSide = {
 
 export type WHistory = {
   matches: WMatch;
+}
+
+export type WStateMain = {
+  activeClockId: string;
+  lastActivatedClockId: string;
+  lastActivatedClockAction: string;
+
+  init: {
+
+  },
+  clocks: {
+    mc: PreciseClock,
+    rest?: PreciseClock,
+    shotclock?: PreciseClock,
+    ride: PreciseClock,
+  },
+  
+  defer: string;
+  l: WStateSide;
+  r: WStateSide;
 }
 
