@@ -1,30 +1,24 @@
-import type { WAge, WStyle } from "@/types";
+import type { WConfig } from "@/types";
 
-interface InitData {
-  style: WStyle;
-  age: WAge;
-  periodLength: number; // seconds
-  team: boolean;
-}
-const ur: InitData = {
+const ur: WConfig = {
   style: 'Folkstyle',
   age: 'Highschool',
-  periodLength: 120,
+  periodLengths: [120],
   team: false,
 };
 
 class InitStore {
-  private data = $state<InitData>({...ur});
+  private data = $state<WConfig>({...ur});
 
   get style() { return this.data.style; }
   get age() { return this.data.age; }
-  get periodLength() { return this.data.periodLength; }
+  get periodLengths() { return this.data.periodLengths; }
   get team() { return this.data.team; }
 
   /**
-   * @param {InitData} newData - set the init data
+   * @param {WConfig} newData - set the init data
    */
-  setAll(newData: InitData) { this.data = newData }
+  setAll(newData: WConfig) { this.data = newData }
 }
 
 export const initStore = new InitStore();

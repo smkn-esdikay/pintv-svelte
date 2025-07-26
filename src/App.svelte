@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getCurrentRoute } from './lib/router.svelte';
   import Home from './pages/Home.svelte';
+  import Selector from './pages/Selector.svelte';
   import Wrestling from './pages/Wrestling.svelte';
   import NotFound from './pages/NotFound.svelte';
   
@@ -8,9 +9,11 @@
 </script>
 
 <main>
-  <div class="min-h-screen border-red-700 border-[4px]">
+  <div class="min-h-screen">
     {#if currentRoute === 'home'}
       <Home />
+    {:else if currentRoute === 'selector'}
+      <Selector />
     {:else if currentRoute === 'wrestling'}
       <Wrestling />
     {:else}

@@ -31,8 +31,8 @@
     </p>
 
 
-    <button onclick={() => navigate('wrestling')}>
-      Wrestling
+    <button onclick={() => navigate('selector')}>
+      Selector
     </button>
     <button onclick={() => navigate('nonexistent')}>
       Test 404 Page

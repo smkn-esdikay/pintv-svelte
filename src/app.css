@@ -8,9 +8,13 @@
 
 
 @layer components {
-  .bg-rred {
-    @apply bg-red;
-    
+
+  h1 {
+    @apply text-[2.4rem];
   }
+  h2 {
+    @apply text-[2rem];
+  }
+
 };
 
