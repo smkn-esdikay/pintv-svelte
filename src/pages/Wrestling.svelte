@@ -41,7 +41,7 @@
   
   .page {
     @apply w-full min-h-screen
-      flex flex-row items-start justify-between gap-4
+      flex flex-row items-start justify-between gap-4;
   }
 
   .page > * {
