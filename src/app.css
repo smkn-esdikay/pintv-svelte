@@ -6,6 +6,16 @@
 
 @source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
+@layer components {
+
+  h1 {
+    @apply text-[2.4rem];
+  }
+  h2 {
+    @apply text-[2rem];
+  }
+
+};
 
 
 

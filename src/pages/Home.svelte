@@ -32,36 +32,8 @@
     {#if (!!showSelectTime)}
     <div>
 
-    </div>
-    {:else}
-    <div>
-      2:00, 1:00, 1:00
-    </div>
-    {/if}
-
-    <div class="flex flex-row justify-center items-end gap-4 h-full border-red-600 border-[2px]">
-      abc
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-  </div>
- 
-  <div class="mt-4">
-
-    <p>Currently selected: {selectedType || 'None'}</p>
-    <p>show: {showSelectTime || 'None'}</p>
-
-    <button onclick={() => navigate('test')}>
-      Test
+    <button onclick={() => navigate('selector')}>
+      Selector
     </button>
 
   </div>

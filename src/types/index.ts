@@ -23,7 +23,7 @@ export type WStyle = 'Folkstyle'
   | 'Freestyle'
   | 'Greco';
 
-export type WAge = 'Highschool' | 'College';
+export type WAge = 'Highschool' | 'College' | undefined;
 export type WSide = 'l' | 'r';
 export type WPos = 't' | 'n' | 'b';
 
@@ -32,7 +32,7 @@ export type WPos = 't' | 'n' | 'b';
 export type WConfig = {
   style: WStyle;
   age: WAge;
-  periodLength: number; // seconds
+  periodLengths: number[]; // seconds
   team: boolean;
 }
 

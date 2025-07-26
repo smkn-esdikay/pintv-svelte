@@ -1,10 +1,9 @@
 import type { WConfig } from "@/types";
 
-
 const ur: WConfig = {
   style: 'Folkstyle',
   age: 'Highschool',
-  periodLength: 120,
+  periodLengths: [120],
   team: false,
 };
 
@@ -13,7 +12,7 @@ class InitStore {
 
   get style() { return this.data.style; }
   get age() { return this.data.age; }
-  get periodLength() { return this.data.periodLength; }
+  get periodLengths() { return this.data.periodLengths; }
   get team() { return this.data.team; }
 
   /**
