@@ -1,16 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/optional/presets';
+@import '@skeletonlabs/skeleton/themes/nosh';
+
+@source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
 
-@layer components {
-  .bg-rred {
-    @apply bg-red;
-    
-  }
-};
+
+
+
+
 

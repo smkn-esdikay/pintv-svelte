@@ -1,16 +1,24 @@
+import type { ZonkClock } from "@/lib/ZonkClock";
+
 /**
- * General
+ * ----------------------- General -----------------------
  */
 export type WeightUnit = 'lbs' | 'kg';
 
 
-export type PreciseClock = {};
 
 /**
- * Wrestling
+ * ----------------------- Clocks -----------------------
+ */
+export type ClockEvent = 'start' | 'stop' | 'reset' | 'complete';
+
+
+
+
+/**
+ * ----------------------- Wrestling -----------------------
  */
 
-// simple types
 export type WStyle = 'Folkstyle'
   | 'Freestyle'
   | 'Greco';
@@ -20,18 +28,50 @@ export type WSide = 'l' | 'r';
 export type WPos = 't' | 'n' | 'b';
 
 
-// standard types
+
+export type WConfig = {
+  style: WStyle;
+  age: WAge;
+  periodLength: number; // seconds
+  team: boolean;
+}
+
 export type WPosChoice = {
   periodIdx: number;
   side: WSide;
   choice: WPos | 'defer';
 }
 
+export type WAction = {
+  clock?: {
+    side: WSide | undefined;
+    clockId: string;
+    event: ClockEvent;
+    timeLeft: number; // ms
+  }
+
+  wrestle?: {
+    action: string;
+    actionTitle: string;
+
+    clean: boolean;
+    
+    pt: number;
+    oppPt: number;
+
+    dq: boolean;
+    cnt: number; // count - might replace this with dynamic count
+  }
+
+  ts: number; // Date.now()
+  elapsed: number; // seconds into current period
+}
+
 export type WPeriod = {
   title: string;
   displayIdx: number; // used for display purposes
   realIdx: number; // true index
-  actions: [];
+  actions: WAction[];
 }
 
 export type WMatch = {
@@ -55,10 +95,10 @@ export type WStateSide = {
   athleteName?: string;
   winbyIdx: number;
   clocks: {
-    blood: PreciseClock;
-    injury: PreciseClock;
-    recovery: PreciseClock;
-    headneck: PreciseClock;
+    blood?: ZonkClock;
+    injury?: ZonkClock;
+    recovery?: ZonkClock;
+    headneck?: ZonkClock;
   }
 }
 
@@ -71,15 +111,13 @@ export type WStateMain = {
   lastActivatedClockId: string;
   lastActivatedClockAction: string;
 
-  init: {
-
-  },
+  config: WConfig;
   clocks: {
-    mc: PreciseClock,
-    rest?: PreciseClock,
-    shotclock?: PreciseClock,
-    ride: PreciseClock,
-  },
+    mc: ZonkClock;
+    rest?: ZonkClock;
+    shotclock?: ZonkClock;
+    ride?: ZonkClock;
+  };
   
   defer: string;
   l: WStateSide;
